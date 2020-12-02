@@ -45,6 +45,11 @@ class ImageHandler:
 
     last_image_index = 0
 
+    def start(self):
+        initializer = Setup()
+        initializer.setup()
+        self.changeImage()
+
     def getRandomIndex(self, start : int, stop: int):
         res = random.randint(start, stop)
         if res == self.last_image_index:
@@ -70,8 +75,5 @@ class ImageHandler:
         sleep(650)
         self.changeImage()
 
-initialize = Setup()
-initialize.setup()
-
 changer = ImageHandler()
-changer.changeImage()
+changer.start()
